@@ -19,10 +19,16 @@ def get_k_nearest(dist, k, sample_index):
 
 def laplacian_score(df_arr, label=None, **kwargs):
     kwargs.setdefault("k_nearest", 8)
-
+    
+    '''
+    Construct distance matrix, dist_matrix, using euclidean distance
+    '''
     distances = pdist(df_arr, metric='euclidean')
     dist_matrix = squareform(distances)
     del distances
+    '''
+    Determine the edge of each sample pairs by k nearest neighbor
+    '''
     edge_sparse_matrix = pd.DataFrame(
         np.zeros((df_arr.shape[0], df_arr.shape[0])),
         dtype=int
@@ -39,9 +45,15 @@ def laplacian_score(df_arr, label=None, **kwargs):
             edge_sparse_matrix.iloc[group_index, group_index] = 1
     S = dist_matrix * edge_sparse_matrix
     del dist_matrix, edge_sparse_matrix
+    '''
+    Calculate the Laplacian graph L
+    '''
     D = np.diag(S.sum(axis=1))
     L = D - S
     del S
+    '''
+    Minimize the Laplacian score
+    '''
     features_lap_score = np.apply_along_axis(
         func1d=lambda f: cal_lap_score(f, D, L), axis=0, arr=df_arr
     )
