@@ -1,7 +1,7 @@
 # Laplacian Score
 An implementation of laplacian score by Python since all the code on GitHub are either too complecated or unavailable
 
-Refered to
+Reference
 [He, Xiaofei, Deng Cai, and Partha Niyogi. "Laplacian score for feature selection." *Advances in neural information processing systems*
          18 (2005).](https://proceedings.neurips.cc/paper/2005/file/b5b03f06271f8917685d14cea7c6c50a-Paper.pdf)
 
