@@ -18,7 +18,7 @@ laplacian_score(
 Arguments:
 * `df_arr`: A numpy array represent data
 * `label`: Default=`None`, Label if the data is a supervised data.
-* `k_nearest`: Default=`8`, if the data is an unsupervised data, use k_nearest to find the edge of distance graph, this parameter takes no action if `label` parameter exists.
+* `k_nearest`: Default=`5`, if the data is an unsupervised data, use k_nearest to find the edge of distance graph, this parameter takes no action if `label` parameter exists.
 
 
 ## Example

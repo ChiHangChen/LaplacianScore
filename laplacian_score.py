@@ -18,7 +18,7 @@ def get_k_nearest(dist, k, sample_index):
 
 
 def laplacian_score(df_arr, label=None, **kwargs):
-    kwargs.setdefault("k_nearest", 8)
+    kwargs.setdefault("k_nearest", 5)
     
     '''
     Construct distance matrix, dist_matrix, using euclidean distance
